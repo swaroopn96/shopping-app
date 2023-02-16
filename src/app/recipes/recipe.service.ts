@@ -1,4 +1,5 @@
 import { EventEmitter } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 
 export class RecipeService {
@@ -6,14 +7,16 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
-      'A Test Recipe',
-      'This is simply a test',
-      'https://www.simplyrecipes.com/thmb/rngm-7eZfo-gsKuRWOceBMM9m_c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Homemade-Pizza-Dough-Lead-Shot-1b-ea13798d224048b3a28afb0936c9b645.jpg'
+      'Tasty Pizza',
+      'Just awesome',
+      'https://www.simplyrecipes.com/thmb/rngm-7eZfo-gsKuRWOceBMM9m_c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Homemade-Pizza-Dough-Lead-Shot-1b-ea13798d224048b3a28afb0936c9b645.jpg',
+      [new Ingredient('Pizza', 1), new Ingredient('Oil', 1)]
     ),
     new Recipe(
-      'Another Test Recipe',
-      'This is simply a test',
-      'https://www.simplyrecipes.com/thmb/rngm-7eZfo-gsKuRWOceBMM9m_c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Homemade-Pizza-Dough-Lead-Shot-1b-ea13798d224048b3a28afb0936c9b645.jpg'
+      'Big Fat Burger',
+      'What else you need to say?',
+      'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
+      [new Ingredient('Milk', 3), new Ingredient('Bread', 1)]
     ),
   ];
 
