@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 //import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
@@ -16,7 +16,8 @@ export class RecipeDetailComponent implements OnInit {
   constructor(
     //private shoppingListService: ShoppingListService,
     private recipeService: RecipeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -30,5 +31,9 @@ export class RecipeDetailComponent implements OnInit {
     //using shopping list service is shortest way to pass ingredients
     //this.shoppingListService.addIngredients(this.recipe.ingredient);
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredient);
+  }
+
+  onEditRecipe() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 }
